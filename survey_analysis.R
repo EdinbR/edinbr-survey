@@ -50,13 +50,13 @@ ggplot(pop_topics, aes(x=topic, y=votes)) +
 dev.off()
 
 pop_topics$speakers <- factor(c("N", "N", "N", "N", "Y", "Y", "N", 
-                         "N", "N", "N", "Y", "N", "N", "N", 
-                         "N", "N", "N"), levels=c("Y", "N"))
+                                "N", "N", "N", "Y", "N", "N", "N", 
+                                "N", "N", "N"), levels=c("Y", "N"))
 
 pdf("plots/missing_speakers.pdf", 5, 4.5)
 ggplot(pop_topics, aes(x=topic, y=votes, fill=speakers)) + 
   geom_bar(stat="identity") +
-  scale_fill_manual(values=c("#dedede", "#3182BD")) +
+  scale_fill_manual(values=c("#3182BD", "#dedede")) +
   coord_flip() + theme_minimal() +
   scale_y_continuous(expand=c(0,0)) +
   labs(x="", y="Number of votes") +
